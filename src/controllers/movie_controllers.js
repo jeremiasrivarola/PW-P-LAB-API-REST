@@ -42,7 +42,7 @@ export const createMovie = async (req, res) => {
     const newMovie = await movieService.createMovie(req.body);
     res.status(201).json(newMovie);
   } catch (err) {
-    res.status(400).json({ error: err.message }); // 400 para validação
+    res.status(400).json({ error: err.message });
   }
 };
 
@@ -51,7 +51,7 @@ export const updateMovie = async (req, res) => {
     const updatedMovie = await movieService.updateMovie(req.params.id, req.body);
     res.json(updatedMovie);
   } catch (err) {
-    res.status(400).json({ error: err.message }); // 400 para validação
+    res.status(400).json({ error: err.message });
   }
 };
 

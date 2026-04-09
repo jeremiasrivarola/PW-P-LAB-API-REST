@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql" 
+  provider = "postgresql"
 }
 
 generator client {
@@ -19,4 +19,14 @@ model Movie {
   releaseYear Int
   directorId  Int
   director    Director @relation(fields: [directorId], references: [id])
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
